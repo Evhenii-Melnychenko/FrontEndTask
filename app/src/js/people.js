@@ -1,52 +1,73 @@
-document.addEventListener("DOMContentLoaded", () => {
 
     let buttonPeople = document.querySelector('.wrapper-buttons-button.people');
-
+   
     let showPeople = () => {
-      
-      let createNode = (element) => {
-          return document.createElement(element);
-      };
-    
-      let append = (parent, el) => {
-        return parent.appendChild(el);
-      };
-
-      const ul = document.getElementById('authors');
-      const url = 'https://swapi.co/api/people/';
+  
+      let ul = document.getElementById('authors');
+      let url = 'https://swapi.co/api/people/';
 
       fetch(url)
       .then((results) => results.json())
       .then(function(data) {
  
         let pagePeopleTitle = document.querySelector('.page-people');
-            pagePeopleTitle.style.opacity = '1';
-            pagePeopleTitle.style.visibility = 'visible';
+
+        pagePeopleTitle.style.cssText = `
+          opacity: 1;
+          visibility: visible
+        `;
 
         let authors = data.results;
 
-        return authors.map(function(author, index) {
+        authors.forEach(function(author, index) {
 
-          let li = createNode('li');
+          let li = document.createElement('li');
           li.dataset.people = index + 1;
-          let currentYear = new Date().getFullYear();
-          
-          let personDate = author.birth_year.replace(/\D+/g,"");
-          let agePerson = currentYear - personDate;
-          
-          // li.innerHTML =  `People ${author.name} ${agePerson}`;
-
-          li.innerHTML =  `<span class="people">People</span> ${author.name}`;
-
-          append(ul, li);
+          li.innerHTML = `<span class="people">People</span>${author.name}`;
+          ul.append(li);
         })
+      })
+      .then((arrPeople) => {
+          console.log(arrPeople);
+          getPeopleInfo();
       })
       .catch(function(error) {
         console.log(error);
       });   
-      
     };
 
-    buttonPeople.addEventListener('click', showPeople, { once: true });
+    function getPeopleInfo() {
+ 
+      let listsPeople = document.querySelectorAll('#authors li');
+      let wrapInfo = document.querySelector('.description-people');
+    
+      listsPeople.forEach((people) => {
 
-});
+        people.addEventListener('click', function() {
+    
+        let id = people.getAttribute('data-people');
+        
+        let urlPeople = `https://swapi.co/api/people/${id}`;
+
+       fetch(urlPeople)
+       .then((results) => results.json())
+       .then(function(data) {
+     
+        let currentYear = new Date().getFullYear();
+        let personDate = data.birth_year.replace(/\D+/g,"");
+        let agePerson = currentYear - personDate;
+            
+        wrapInfo.innerHTML = `
+          <img src="https://starwars-visualguide.com/assets/img/characters/${id}.jpg" alt="">
+          <h3>People's info</h3>
+          <p class="description-people__name">Name: ${data.name}</p>
+          <p class="description-people__age">Age: ${agePerson}</p>
+          <p class="description-people__mass">Moss: ${data.mass}</p>
+        `;
+       })
+       
+        })
+      })
+    }
+
+buttonPeople.addEventListener('click', showPeople, { once: true });

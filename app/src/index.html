@@ -11,69 +11,77 @@
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
+
 <div class="page-wrapper">
   
-<div class="changing_theme">
-  <form name="myForm">
-    <p>Chose a theme:</p>
-    <div>
-      <input type="radio" name="theme" id ="white_theme" value="White theme" checked="checked" />
-      <label for="white_theme">White theme</label>
-    </div>
-    <div>
-      <input type="radio" name="theme" id="black_theme" value="Black theme" />
-      <label for="black_theme">Black theme</label>
-    </div>
-  </form>
-</div>
-
-
+  <!-- popUp -->
   <div class="modal-shadow" style="opacity: 0;visibility: hidden;"></div>
   <div class="modal-window popup" style="opacity: 0;visibility: hidden;">
-      <a class="close-popUp">×</a>
-      <div class="page-form-block_modal">
-          <h4 class="page-form-title">
-            Кто вы ?
-          </h4>
-          <div class="form-wrap">
-              <form class="bc-form">
-                  <div class="input-wrap">
-                      <input class="nameUser" name="nameUser" minlength="3" type="text" placeholder="Ваше имя" required="required">
+        <a class="close-popUp">×</a>
+        <div class="page-form-block_modal">
+            <h4 class="page-form-title">
+              Who are you ?
+            </h4>
+            <div class="form-wrap">
+                <form class="popUp-form">
+                    <div class="input-wrap">
+                        <input class="nameUser" name="nameUser" minlength="3" type="text" placeholder="Your name" required="required">
+                    </div>
+                    <div class="error-text">Please, fill in your name</div>
+                    <div class="input-wrap">
+                        <input type="submit" value="Send" class="button_sent">
                   </div>
-                  <div class="error-text">Заполните</div>
-                  <div class="input-wrap">
-                      <input type="submit" value="Отправить" class="button_sent">
-                </div>
-              </form>
-          </div>
+                </form>
+            </div>
+        </div>
+        <div class="block-greeting-user" style="opacity: 0;visibility: hidden;">
+            <h2>Hello, <span></span></h2>
+        </div> 
+  </div>
+  <!-- End popUp -->
 
+  <!-- block themes -->
+  <div class="changing_theme">
+    <form name="myForm">
+      <p>Chose a theme:</p>
+      <div>
+        <input type="radio" name="theme" id ="white_theme" value="White theme" checked="checked" />
+        <label for="white_theme">White theme</label>
       </div>
+      <div>
+        <input type="radio" name="theme" id="black_theme" value="Black theme" />
+        <label for="black_theme">Black theme</label>
+      </div>
+    </form>
+  </div>
+  <!-- end block themes -->
 
-      <div class="block-greeting-user" style="opacity: 0;visibility: hidden;">
-          <h2>Hello, <span></span></h2>
-      </div> 
+  <!-- block buttons -->
+  <div class="block-buttons">
+    <div class="container">
+        <ul class="wrapper-buttons">
+            <li class="wrapper-buttons-button people">Peoples</li>
+            <li class="wrapper-buttons-button films">Films</li>
+            <li class="wrapper-buttons-button starships">Starships</li>
+        </ul>
     </div>
-
-<div class="wrapper-buttons">
-      <div class="wrapper-buttons-button people">Peoples</div>
-      <div class="wrapper-buttons-button films">Films</div>
-      <div class="wrapper-buttons-button starships">Starships</div>
-</div>
-
-
-<div class="wrapper-people-info">
-  <div class="page-people">Page people</div>
-  <ul id="authors">
-
-  </ul>
-
-  <div class="description-people">
-
   </div>
 
-</div>
+  <!-- end block buttons -->
 
-</div>
+  <!-- block people  -->
+  <div class="wrapper-people-info">
+    <div class="container">
+        <div class="page-people">Page people</div>
+
+        <div class="block-people-details">
+            <ul id="authors"></ul>
+            <div class="description-people">
+                
+            </div> 
+        </div>
+    </div>
+  </div>
 
 </div>
 

@@ -1,7 +1,9 @@
 import 'webp-in-css/polyfill';
 import './popUp';
-import './people';
 import './theme';
+import './people';
+// import './detailed';
+
 // import './films';
 // import './starhips';
 

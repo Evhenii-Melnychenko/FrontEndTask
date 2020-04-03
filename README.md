@@ -149,13 +149,3 @@ c. in html you definitely need id="timer"; you add only classes yuo need
   </div>
 </div>
 ```
-
-## Authors
-
-* **Andrey Barchuk** - [HollyBang](https://github.com/HollyBang)
-* **Bohdan Onatsky** - [Rammfall](https://github.com/Rammfall)
-* **Igor Kolechkin** - [igorkolechkin](https://github.com/igorkolechkin)
-
-
-
-

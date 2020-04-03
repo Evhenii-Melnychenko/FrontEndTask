@@ -1,10 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+let buttonFilms = document.querySelector('.wrapper-buttons-button.films');
 
-    let buttonFilms = document.querySelector('.wrapper-buttons-button.films');
-
-    console.log('films');
+let showFilms = () => {
     
+    console.log('films');
 
-    buttonFilms.addEventListener('click', showFilms, { once: true });
+};
 
-});
+buttonFilms.addEventListener('click', showFilms, { once: true });
